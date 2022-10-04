@@ -12,14 +12,16 @@ export default function BannerPage({ imageBanner, truncate, movie }) {
       }}
     >
       <div className="banner-container">
-        <h1 className="banner-title"> {movie.name}</h1>
+        <h1 className="banner-title">
+          {movie?.name || movie?.title || movie.original}
+        </h1>
         <div className="banner-btn">
           <button className="banner-button">Play</button>
           <button className="banner-button">My List</button>
         </div>
 
         <h1 className="banner-description">
-          {truncate(`${movie.overview}`, 150)}
+          {truncate(movie.overview, 150)}
         </h1>
       </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavbarCom from "../../components/NavbarCom";
 
 const avatar =
@@ -6,6 +7,7 @@ const avatar =
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const transitionNavbar = () => {
     if (window.scrollY > 100) {
@@ -20,9 +22,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", transitionNavbar);
   }, []);
 
+  const handleNavigationProfilePage = () => {
+    navigate("/profile");
+  };
+
   return (
     <div>
-      <NavbarCom show={show} avatar={avatar} />
+      <NavbarCom
+        show={show}
+        avatar={avatar}
+        handleNavigationProfilePage={handleNavigationProfilePage}
+      />
     </div>
   );
 }

@@ -24,9 +24,6 @@ export default function Banner() {
       });
   }, []);
 
-  console.log(movie, "movie");
-
-  //   if (loading) return <div>Loading.....</div>;
   if (error) return <div>{error.message}</div>;
 
   const truncate = (string, n) => {
